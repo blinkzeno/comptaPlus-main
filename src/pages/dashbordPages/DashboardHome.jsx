@@ -1,45 +1,14 @@
-import { Card, CardContent, CardFooter,CardHeader, CardTitle } from "@/components/ui/card";
+
+import SystemeCard from "../../components/dashboard/SystemeCard";
 
 const DashboardHome = () => {
   return (
     <main className="p-6 space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <Card>
-          <CardHeader>
-            <CardTitle>Comptes Récents</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {/* Placeholder for account list */}
-            <p className="text-gray-500">Aucun compte récent</p>
+        <SystemeCard systeme={{id:1, nom: "Systeme 1", devise: "USD", dateCreation: "2022-01-01" }} />
+        <SystemeCard systeme={{ id:2, nom: "Systeme 2", devise: "EUR", dateCreation: "2022-02-01" }} />
+        <SystemeCard systeme={{ id:3, nom: "Systeme 3", devise: "GBP", dateCreation: "2022-03-01" }} />
 
-          </CardContent>
-          <CardFooter >
-    <p>
-      <a href="#">Voir tous les comptes</a>
-    </p>
-          </CardFooter>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Factures</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {/* Placeholder for invoices */}
-            <p className="text-gray-500">Aucune facture</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Actions Récentes</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {/* Placeholder for recent actions */}
-            <p className="text-gray-500">Aucune action récente</p>
-          </CardContent>
-
-        </Card>
       </div>
     </main>
   );

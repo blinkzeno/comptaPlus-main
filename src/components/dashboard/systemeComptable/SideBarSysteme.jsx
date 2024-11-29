@@ -42,7 +42,7 @@ const sidebarItems = [
   { 
     link: '/dashboard/systeme-comptables/1/bilans',
     icon: <Clock />, 
-    label: 'Geestion de Bilan', 
+    label: 'Gestion de Bilan', 
     section: 'bilan' 
   },
   { 

@@ -1,0 +1,27 @@
+/* Styles pour le mode clair */
+.settings-container.light {
+   background-color: #fff;
+   color: #333;
+ }
+ 
+ .settings-container.dark {
+   background-color: #333;
+   color: #fff;
+ }
+ 
+ .settings-section {
+   margin-bottom: 20px;
+ }
+ 
+ .settings-actions button {
+   padding: 10px 20px;
+   background-color: #007bff;
+   color: white;
+   border: none;
+   cursor: pointer;
+ }
+ 
+ .settings-actions button:hover {
+   background-color: #0056b3;
+ }
+ 
