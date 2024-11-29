@@ -10,52 +10,59 @@ import { ChevronLeft } from "lucide-react";
 
 const sidebarItems = [
   { 
-    link: '/dashboard',
+    link: '/dashboard/systeme-comptables/1',
     icon: <LayoutDashboard />, 
     label: 'Vue d\'ensemble', 
-    section: 'dashboard' 
+    section: 'ensemble' 
   },
   { 
-    link: '/dashboard/gestion-comptables',
+    link: '/dashboard/systeme-comptables/1/pieces-jointes/achats',
     icon: <FileSpreadsheet />, 
     label: "Ajouter des pièces comptables", 
-    section: 'accounting' 
+    section: 'accountings' 
   },
   { 
-    link: '/dashboard/historique',
+    link: '/dashboard/systeme-comptables/1/comptables',
     icon: <Users />, 
     label: 'Gestion des comptables', 
     section: 'users' 
   },
   { 
-    link: '/dashboard/aide',
+    link: '/dashboard/systeme-comptables/1/journaux',
     icon: <BookOpen />, 
     label: 'Consultation des journaux', 
     section: 'logs' 
   },
   { 
-    link: '/dashboard/parametres',
+    link: '/dashboard/systeme-comptables/1/registres',
     icon: <Clipboard />, 
     label: 'Gestion des registres', 
     section: 'registers' 
   },
   { 
-    link: '/dashboard/historique-operations',
+    link: '/dashboard/systeme-comptables/1/bilans',
+    icon: <Clock />, 
+    label: 'Geestion de Bilan', 
+    section: 'bilan' 
+  },
+  { 
+    link: '/dashboard/systeme-comptables/1/historique',
     icon: <Clock />, 
     label: 'Historique des opérations', 
     section: 'history' 
-  }
+  },
 ];
 
 const SideBarSysteme = () => {
-  const [activeSection, setActiveSection] = useState('dashboard');
+  const [activeSection, setActiveSection] = useState('ensemble');
    
   return (
     <TooltipProvider>
 
-      <div className="w-20 md:w-72 py-5 h-screen flex flex-col justify-between bg-white border-r shadow-sm p-4 transition-all duration-300">
+      <div className="w-20 md:w-72 py-5 h-screen flex flex-col gap-5 bg-white border-r shadow-sm p-4 transition-all duration-300">
 
-        <div className="flex flex-col md:flex-row items-center border-b py-4">
+      <div className='flex flex-col gap-5 mb-5'>
+      <div className="flex flex-col md:flex-row items-center border-b py-4">
           <img 
             src={logo} 
             alt="Logo" 
@@ -63,7 +70,7 @@ const SideBarSysteme = () => {
           />
           <h2 className="text-xl font-bold text-gray-800 hidden md:block ">ComptaPlus</h2>
         </div>
-        <div className="p-4 border-b flex items-center justify-center">
+        <div className=" border-b py-3 flex items-center justify-center">
          <Link to="/dashboard">
          <Button className="w-full md:p-2 md:justify-center md:w-full">
           <ChevronLeft />
@@ -74,7 +81,9 @@ const SideBarSysteme = () => {
         </Button>
          </Link>
         </div>
-        <nav className="flex h-3/5 flex-col gap-5">
+      </div>
+       
+        <nav className="flex  flex-col gap-5">
           {sidebarItems.map((item) => (
             <Tooltip key={item.section}>
               <TooltipTrigger asChild>

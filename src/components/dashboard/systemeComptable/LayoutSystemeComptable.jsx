@@ -10,7 +10,7 @@ const LayoutSystemeComptable = () => {
     <SideBarSysteme/>
     <div className="flex-1 flex flex-col">
       <NavBar />
-    
+        
         <Outlet /> {/* Le contenu spécifique au tableau de bord sera rendu ici */}
       
       

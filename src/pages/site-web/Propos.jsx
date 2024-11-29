@@ -1,9 +1,9 @@
 
 import { Users, Shield, Lightbulb, Building2, User, Building } from 'lucide-react';
-import img1 from '../assets/img1.jpg';
-import img2 from '../assets/img2.jpg';
-import img3 from '../assets/img3.jpg';
-import illustration2 from '../assets/illustration2.svg';
+import img1 from '@/assets/img1.jpg';
+import img2 from '@/assets/img2.jpg';
+import img3 from '@/assets/img3.jpg';
+import illustration2 from '@/assets/illustration2.svg';
 
 
 
