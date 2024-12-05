@@ -1,9 +1,9 @@
 
 import { Users, Shield, Lightbulb, Building2, User, Building } from 'lucide-react';
-import img1 from '@/assets/img1.jpg';
-import img2 from '@/assets/img2.jpg';
-import img3 from '@/assets/img3.jpg';
-import illustration2 from '@/assets/illustration2.svg';
+import img1 from '@/assets/img1.webp';
+import img2 from '@/assets/img2.webp';
+import img3 from '@/assets/img3.webp';
+
 
 
 
@@ -67,9 +67,7 @@ const Propos = () => {
                 Un logiciel conçu pour répondre aux besoins de tous : particuliers, PME, et grandes entreprises.
               </p>
             </div>
-            <div className="md:w-1/2">
-              <img src={illustration2} alt="Illustration" className="w-full opacity-80" />
-            </div>
+            
           </div>
         </div>
       </header>

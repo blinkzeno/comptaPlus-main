@@ -104,15 +104,23 @@ const Registre = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
+         
+           {
+            registres.length > 0 ? (
+             <div className='grid grid-cols-2 gap-4'>
+               <div>
               <p>Nombre total de registres : {registres.length}</p>
             </div>
             <div>
               <p>Dernier registre ajouté : {registres[registres.length - 1].nom} 
                 ({registres[registres.length - 1].dateCreation})</p>
             </div>
-          </div>
+             </div>
+            ) : (
+              <p>Aucun registre disponible.</p>
+            )
+           }
+          
         </CardContent>
       </Card>
 
@@ -151,7 +159,7 @@ const Registre = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {registres.map((registre) => (
+           {registres.length > 0 ?registres.map((registre) => (
             <TableRow key={registre.id}>
               <TableCell>{registre.nom}</TableCell>
               <TableCell>{registre.type}</TableCell>
@@ -180,7 +188,11 @@ const Registre = () => {
                 </div>
               </TableCell>
             </TableRow>
-          ))}
+          )) : (
+            <TableRow>
+              <TableCell colSpan={5}>Aucun registre disponible</TableCell>
+            </TableRow>
+          )} 
         </TableBody>
       </Table>
 

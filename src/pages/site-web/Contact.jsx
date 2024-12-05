@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Linkedin } from 'lucide-react';
 import FaqSection from "@/components/site-web/FaqSection";
 
-import contactIllustration from '@/assets/contactIllustration.svg';
+
 
 const Contact = () => {
   const handleSubmit = (e) => {
@@ -28,9 +28,7 @@ const Contact = () => {
               Nous sommes là pour répondre à vos questions et vous accompagner.
               </p>
             </div>
-            <div className="md:w-1/2">
-              <img src={contactIllustration} alt="Illustration" className="w-full max-h-96 opacity-80" />
-            </div>
+            
           </div>
         </div>
       </header>

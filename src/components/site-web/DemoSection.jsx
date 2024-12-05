@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react"
-import demo from "@/assets/demo.jpg"
+import demo from "@/assets/demo.webp"
 
 const DemoSection = () => {
   return (
