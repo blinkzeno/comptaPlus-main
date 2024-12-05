@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { 
   Select, 
   SelectContent, 
@@ -29,10 +30,19 @@ import {
   Search 
 } from 'lucide-react';
 
-// Type pour un comptable
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription
+} from "@/components/ui/dialog";
+
+
 
 
 const GestionComptables = () => {
+  const [isOpen, setIsOpen] = useState(false);
   // État pour stocker la liste des comptables
   const [comptables, setComptables] = useState([
     {
@@ -42,6 +52,7 @@ const GestionComptables = () => {
       email: 'marie.dupont@entreprise.com',
       role: 'Comptable',
       statut: 'Actif',
+      systeme: 'Systeme 1',
       dateAjout: new Date('2024-01-15')
     },
     {
@@ -51,6 +62,7 @@ const GestionComptables = () => {
       email: 'jean.martin@entreprise.com',
       role: 'Superviseur',
       statut: 'Actif',
+      systeme: 'Systeme 2',
       dateAjout: new Date('2023-11-20')
     }
   ]);
@@ -75,11 +87,12 @@ const GestionComptables = () => {
   );
 
   return (
+    <>
     <Card className="w-full">
       <CardHeader>
         <div className="flex justify-between items-center">
           <CardTitle>Gestion des Comptables</CardTitle>
-          <Button variant="default">
+          <Button onClick={() => setIsOpen(true)} variant="default">
             <Plus className="mr-2" /> Ajouter un Comptable
           </Button>
         </div>
@@ -132,6 +145,7 @@ const GestionComptables = () => {
               <TableHead>Email</TableHead>
               <TableHead>Rôle</TableHead>
               <TableHead>Statut</TableHead>
+              <TableHead> Systeme</TableHead>
               <TableHead>Date d&apos;ajout</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
@@ -151,6 +165,7 @@ const GestionComptables = () => {
                     {comptable.statut}
                   </span>
                 </TableCell>
+                <TableCell>{comptable.systeme}</TableCell>
                 <TableCell>
                   {comptable.dateAjout.toLocaleDateString()}
                 </TableCell>
@@ -180,7 +195,77 @@ const GestionComptables = () => {
           </div>
         )}
       </CardContent>
+      
     </Card>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Ajouter un Comptable</DialogTitle>
+          <DialogDescription>
+            creer un Comptable
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <Label htmlFor="nom">Nom</Label>
+              <Input id="nom" placeholder="Nom" />
+            </div>
+            <div>
+              <Label htmlFor="prenom">Prénom</Label>
+              <Input id="prenom" placeholder="Prénom" />
+            </div>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" placeholder="Email" />
+            </div>
+            <div>
+              <Label htmlFor="role">Rôle</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Rôle" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Comptable">Comptable</SelectItem>
+                  <SelectItem value="Superviseur">Superviseur</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label htmlFor="role">systeme</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="systemes" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Comptable">systeme 1</SelectItem>
+                  <SelectItem value="Superviseur">systeme 2</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label htmlFor="statut">Statut</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Statut" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Actif">Actif</SelectItem>
+                  <SelectItem value="Inactif">Inactif</SelectItem>
+                </SelectContent>
+              </Select> 
+            </div>
+            <div>
+              <Label htmlFor="dateAjout">Date d&apos;ajout</Label>
+              <Input type="date" id="dateAjout" />
+            </div>
+          </div>
+     </div>
+
+        
+      </DialogContent>
+    </Dialog>
+    </>
   );
 };
 

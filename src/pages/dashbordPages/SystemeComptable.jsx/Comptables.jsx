@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { 
   Select, 
   SelectContent, 
@@ -29,10 +30,17 @@ import {
   Search 
 } from 'lucide-react';
 
-// Type pour un comptable
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription
+} from "@/components/ui/dialog";
 
 
 const Comptables = () => {
+  const [isOpen, setIsOpen] = useState(false);
   // État pour stocker la liste des comptables
   const [comptables, setComptables] = useState([
     {
@@ -79,7 +87,7 @@ const Comptables = () => {
       <CardHeader>
         <div className="flex justify-between items-center">
           <CardTitle>Gestion des Comptables</CardTitle>
-          <Button variant="default">
+          <Button onClick={() => setIsOpen(true)} variant="default">
             <Plus className="mr-2" /> Ajouter un Comptable
           </Button>
         </div>
@@ -180,6 +188,61 @@ const Comptables = () => {
           </div>
         )}
       </CardContent>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Ajouter un Comptable</DialogTitle>
+          <DialogDescription>
+           Ajouter un comptable au système
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-2 gap-2">
+          <div>
+              <Label htmlFor="comptable">Comptables</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Comptables" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Comptable 1">Comptable 1</SelectItem>
+                  <SelectItem value="Comptable 2">Comptable 2</SelectItem>
+                  <SelectItem value="Comptable 3">Comptable 3</SelectItem>
+                  <SelectItem value="Comptable 4">Comptable 4</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label htmlFor="role">Rôle</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Rôle" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Comptable">Comptable</SelectItem>
+                  <SelectItem value="Superviseur">Superviseur</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label htmlFor="statut">Statut</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Statut" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Actif">Actif</SelectItem>
+                  <SelectItem value="Inactif">Inactif</SelectItem>
+                </SelectContent>
+              </Select> 
+            </div>
+            
+          </div>
+     </div>
+
+        
+      </DialogContent>
+    </Dialog>
     </Card>
   );
 };
