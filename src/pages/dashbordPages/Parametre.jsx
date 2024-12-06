@@ -2,23 +2,10 @@ import { useState } from 'react';
 
 
 const Parametre = () => {
-  const [theme, setTheme] = useState('light');
-  const [language, setLanguage] = useState('en');
-  const [notifications, setNotifications] = useState(true);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleThemeChange = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
-
-  const handleLanguageChange = (event) => {
-    setLanguage(event.target.value);
-  };
-
-  const handleNotificationsChange = () => {
-    setNotifications(prevState => !prevState);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,7 +14,7 @@ const Parametre = () => {
   };
 
   return (
-    <div className={`p-6 rounded-lg shadow-lg ${theme === 'light' ? 'bg-white text-gray-900' : 'bg-gray-800 text-white'}`}>
+    <div className="p-6 rounded-lg shadow-lg h-full">
       <h2 className="text-3xl font-semibold mb-6">Paramètres</h2>
 
       <form onSubmit={handleSubmit}>
@@ -55,45 +42,10 @@ const Parametre = () => {
           />
         </div>
 
-        {/* Thème */}
-        <div className="mb-6">
-          <h3 className="text-2xl font-medium mb-4">Thème</h3>
-          <button
-            type="button"
-            onClick={handleThemeChange}
-            className="px-4 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-700 focus:outline-none"
-          >
-            Passer en mode {theme === 'light' ? 'sombre' : 'clair'}
-          </button>
-        </div>
+        
 
-        {/* Langue */}
-        <div className="mb-6">
-          <h3 className="text-2xl font-medium mb-4">Langue</h3>
-          <select
-            value={language}
-            onChange={handleLanguageChange}
-            className="w-full px-4 py-2 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="en">Anglais</option>
-            <option value="fr">Français</option>
-            <option value="es">Espagnol</option>
-          </select>
-        </div>
+    
 
-        {/* Notifications */}
-        <div className="mb-6">
-          <h3 className="text-2xl font-medium mb-4">Notifications</h3>
-          <label className="flex items-center text-sm font-medium">
-            <input
-              type="checkbox"
-              checked={notifications}
-              onChange={handleNotificationsChange}
-              className="mr-2"
-            />
-            Activer les notifications
-          </label>
-        </div>
 
         {/* Boutons d'enregistrement */}
         <div className="flex justify-end">

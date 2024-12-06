@@ -52,33 +52,7 @@ const Aide = () => {
         ))}
       </Accordion>
 
-      {/* Formulaire de contact
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold">Contactez-nous</h2>
-        <Form onSubmit={handleSubmit(handleContactSubmit)}>
-          <FormField>
-            <FormItem>
-              <FormLabel htmlFor="message">Votre Message</FormLabel>
-              <FormControl>
-                <Controller
-                  name="message"
-                  control={control}
-                  render={({ field }) => (
-                    <Textarea
-                      id="message"
-                      placeholder="Décrivez votre problème ou question..."
-                      {...field}
-                      rows={5}
-                      className="w-full"
-                    />
-                  )}
-                />
-              </FormControl>
-            </FormItem>
-          </FormField>
-          <Button type="submit" className="mt-4">Envoyer</Button>
-        </Form>
-      </div> */}
+     
     </div>
   );
 };

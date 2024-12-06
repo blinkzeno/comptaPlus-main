@@ -1,0 +1,123 @@
+export const devises = [
+  {
+    code: "USD",
+    symbole: "$",
+    nom: "Dollar américain",
+  },
+  {
+    code: "EUR",
+    symbole: "€",
+    nom: "Euro",
+  },
+  {
+    code: "JPY",
+    symbole: "¥",
+    nom: "Yen japonais",
+  },
+  {
+    code: "GBP",
+    symbole: "£",
+    nom: "Livre sterling",
+  },
+  {
+    code: "CHF",
+    symbole: "CHF",
+    nom: "Franc suisse",
+  },
+  {
+    code: "CNY",
+    symbole: "¥",
+    nom: "Yuan chinois",
+  },
+  {
+    code: "BRL",
+    symbole: "R$",
+    nom: "Real brésilien",
+  },
+  {
+    code: "ZAR",
+    symbole: "R",
+    nom: "Rand sud-africain",
+  },
+  {
+    code: "DKK",
+    symbole: "kr",
+    nom: "Couronne danoise",
+  },
+  {
+    code: "NOK",
+    symbole: "kr",
+    nom: "Couronne norvégienne",
+  },
+  {
+    code: "SEK",
+    symbole: "kr",
+    nom: "Couronne suédoise",
+  },
+  {
+    code: "CAD",
+    symbole: "$",
+    nom: "Dollar canadien",
+  },
+  {
+    code: "AUD",
+    symbole: "$",
+    nom: "Dollar australien",
+  },
+  {
+    code: "NZD",
+    symbole: "$",
+    nom: "Dollar néo-zélandais",
+  },
+  {
+    code: "INR",
+    symbole: "₹",
+    nom: "Roupie indienne",
+  },
+  {
+    code: "MXN",
+    symbole: "$",
+    nom: "Peso mexicain",
+  },
+  {
+    code: "ARS",
+    symbole: "$",
+    nom: "Peso argentin",
+  },
+  {
+    code: "TRY",
+    symbole: "₺",
+    nom: "Livre turque",
+  },
+  {
+    code: "RUB",
+    symbole: "₽",
+    nom: "Rouble russe",
+  },
+
+  {
+    code: "XOF",
+    symbole: "CFA",
+    nom: "Franc CFA BCEAO",
+  },
+  {
+    code: "EGP",
+    symbole: "£",
+    nom: "Livre égyptienne",
+  },
+  {
+    code: "XAF",
+    symbole: "FCFA",
+    nom: "Franc CFA",
+  },
+  {
+    code: "ZMW",
+    symbole: "ZK",
+    nom: "Kwacha zambienne",
+  },
+  {
+    code: "GHS",
+    symbole: "GH₵",
+    nom: "Cedi ghana",
+  },
+];
