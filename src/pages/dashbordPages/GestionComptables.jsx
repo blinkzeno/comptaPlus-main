@@ -3,48 +3,20 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-
 import ComptableTable from "../../components/dashboard/ComptableTable";
 import ComptableFiltre from "../../components/dashboard/ComptableFiltre";
 import ComptableForm from "../../components/dashboard/ComptableForm";
 import { Plus } from "lucide-react";
-
-
+import { compatblesIems } from "../../lib/dashboardcontent";
 
 const GestionComptables = () => {
   const [isOpen, setIsOpen] = useState(false);
   // État pour stocker la liste des comptables
-  const [comptables, setComptables] = useState([
-    {
-      id: "1",
-      nom: "Dupont",
-      prenom: "Marie",
-      email: "marie.dupont@entreprise.com",
-      role: "Comptable",
-      statut: "Actif",
-      systeme: "systeme 1",
-      dateAjout: new Date("11/01/2024"),
-    },
-    {
-      id: "2",
-      nom: "Martin",
-      prenom: "Jean",
-      email: "jean.martin@entreprise.com",
-      role: "Superviseur",
-      statut: "Actif",
-      systeme: "systeme 2",
-      dateAjout: new Date("11/01/2024"),
-    },
-  ]);
+  const [comptables, setComptables] = useState(compatblesIems);
 
   const [comptablesFiltres, setComptablesFiltres] = useState([]);
-  
+
   const [comptableModifie, setCompatableModifie] = useState(null);
-
-  
-
-
-
 
   return (
     <>
@@ -59,18 +31,16 @@ const GestionComptables = () => {
         </CardHeader>
         <CardContent>
           {/* Zone de filtres et recherche */}
-         <ComptableFiltre
+          <ComptableFiltre
             comptables={comptables}
             setComptablesFiltres={setComptablesFiltres}
-/>
+          />
           {/* Tableau des comptables */}
-         <ComptableTable
-         
+          <ComptableTable
             comptables={comptablesFiltres}
             setComptables={setComptables}
             setIsOpen={setIsOpen}
             setCompatableModifie={setCompatableModifie}
-           
           />
 
           {/* Message si aucun résultat */}
@@ -88,8 +58,7 @@ const GestionComptables = () => {
         setComptables={setComptables}
         comptableModifie={comptableModifie}
         setCompatableModifie={setCompatableModifie}
-
-         />
+      />
     </>
   );
 };

@@ -121,3 +121,26 @@ export const devises = [
     nom: "Cedi ghana",
   },
 ];
+
+export const compatblesIems = [
+  {
+    id: "1",
+    nom: "Dupont",
+    prenom: "Marie",
+    email: "marie.dupont@entreprise.com",
+    role: "Comptable",
+    statut: "Actif",
+    systeme: "systeme 1",
+    dateAjout: new Date("11/01/2024"),
+  },
+  {
+    id: "2",
+    nom: "Martin",
+    prenom: "Jean",
+    email: "jean.martin@entreprise.com",
+    role: "Superviseur",
+    statut: "Actif",
+    systeme: "systeme 2",
+    dateAjout: new Date("11/01/2024"),
+  },
+]
