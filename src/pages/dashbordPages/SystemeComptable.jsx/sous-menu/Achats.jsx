@@ -4,6 +4,7 @@ const fields = [
   { label: "Date de l'opération", type: "date" },
   { label: "Description des produits", type: "textarea" },
   { label: "Quantité", type: "number" },
+  { label: "Mode de paiement", type: "select" },
   { label: "Prix unitaire", type: "number" },
   { label: "Montant total", type: "number" },
   { label: "Fournisseur", type: "text" },

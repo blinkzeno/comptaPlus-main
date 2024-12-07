@@ -46,6 +46,11 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
+          <li>
+            <Link to="/dashboard" className="text-gray-700 hover:text-blue-500">
+              Allez au dashboard
+            </Link>
+          </li>
         </ul>
 
         {/* Bouton Connectez-vous (visible sur les grands écrans) */}
