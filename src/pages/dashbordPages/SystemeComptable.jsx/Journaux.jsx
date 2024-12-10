@@ -184,11 +184,11 @@ const Journaux = () => {
           {/* Liste des écritures */}
          <div className='space-x-4 flex  w-full'>
           {/* tableau des credits */}
-        <div className='w-1/2 bg-slate-200'>
+        <div className='w-1/2 '>
           <div>
             <h3 className=" text-center text-lg font-semibold mb-2">Ecritures de Crédit</h3>
           </div>
-        <Table className="w-full bg-blue-200">
+        <Table className="w-full  border">
             <TableHeader>
               <TableRow >
                
@@ -220,11 +220,11 @@ const Journaux = () => {
           </Table>
         </div>
           {/* tableau des debits */}
-          <div className='w-1/2 bg-slate-200'>
+          <div className='w-1/2 '>
           <div>
             <h3 className=" text-center text-lg font-semibold mb-2">Ecritures de Debit</h3>
           </div>
-        <Table className="w-full bg-green-200">
+        <Table className="w-full border  ">
             <TableHeader>
               <TableRow>
         
@@ -265,7 +265,7 @@ const Journaux = () => {
             <Button variant="outline">
               <FileText className="mr-2" /> Exporter Excel
             </Button>
-            <Button>Ajouter une écriture</Button>
+        
           </div>
         </DialogContent>
       </Dialog>
