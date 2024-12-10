@@ -13,7 +13,7 @@ import Parametre from "./pages/dashbordPages/Parametre";
 import Aide from "./pages/dashbordPages/Aide";
 import LayoutSystemeComptable from "./components/dashboard/systemeComptable/LayoutSystemeComptable";
 import VueEnsemble from "./pages/dashbordPages/SystemeComptable.jsx/VueEnsemble";
-import Comptables from "./pages/dashbordPages/SystemeComptable.jsx/Comptables.jsx";
+
 import Journaux from "./pages/dashbordPages/SystemeComptable.jsx/Journaux";
 import Registre from "./pages/dashbordPages/SystemeComptable.jsx/Registre";
 import Bilan from "./pages/dashbordPages/SystemeComptable.jsx/Bilan";
@@ -42,7 +42,6 @@ const App = () => {
         {/* Routes du tableau de bord (qui ont leur propre layout) */}
         <Route element={<LayoutDashboard/>}>
           <Route path="/dashboard" element={<DashboardHome />} />
-          <Route path="/dashboard/gestion-comptables" element={<GestionComptables />} />
           <Route path="/dashboard/historique" element={<Historiques />} />
           <Route path="/dashboard/aide" element={<Aide/>} />
           <Route path="/dashboard/parametres" element={<Parametre />} />
@@ -50,7 +49,7 @@ const App = () => {
 
         <Route element={<LayoutSystemeComptable/>}>
             <Route path="/dashboard/systeme-comptables/1" element={<VueEnsemble/>} />
-            <Route path="/dashboard/systeme-comptables/1/comptables" element={<Comptables/>} />
+            <Route path="/dashboard/systeme-comptables/1/comptables" element={<GestionComptables/>} />
             <Route path="/dashboard/systeme-comptables/1/journaux" element={<Journaux/>} />
             <Route path="/dashboard/systeme-comptables/1/registres" element={<Registre/>} />
             <Route path="/dashboard/systeme-comptables/1/bilans" element={<Bilan/>} />

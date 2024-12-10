@@ -9,14 +9,22 @@ import ComptableForm from "../../components/dashboard/ComptableForm";
 import { Plus } from "lucide-react";
 import { compatblesIems } from "../../lib/dashboardcontent";
 
+
 const GestionComptables = () => {
   const [isOpen, setIsOpen] = useState(false);
   // État pour stocker la liste des comptables
   const [comptables, setComptables] = useState(compatblesIems);
+  const [isModifier, setIsModifier] = useState(false);
 
   const [comptablesFiltres, setComptablesFiltres] = useState([]);
 
   const [comptableModifie, setCompatableModifie] = useState(null);
+
+ const handleAjouterComptable = () => {
+  setCompatableModifie(null);
+  setIsModifier(false);
+    setIsOpen(true);
+  };
 
   return (
     <>
@@ -24,7 +32,7 @@ const GestionComptables = () => {
         <CardHeader>
           <div className="flex justify-between items-center">
             <CardTitle>Gestion des Comptables</CardTitle>
-            <Button onClick={() => setIsOpen(true)} variant="default">
+            <Button onClick={handleAjouterComptable} variant="default">
               <Plus className="mr-2" /> Ajouter un Comptable
             </Button>
           </div>
@@ -40,6 +48,7 @@ const GestionComptables = () => {
             comptables={comptablesFiltres}
             setComptables={setComptables}
             setIsOpen={setIsOpen}
+            setIsModifier={setIsModifier}
             setCompatableModifie={setCompatableModifie}
           />
 
@@ -56,6 +65,8 @@ const GestionComptables = () => {
         setIsOpen={setIsOpen}
         comptables={comptables}
         setComptables={setComptables}
+        isModifier={isModifier}
+        setIsModifier={setIsModifier}
         comptableModifie={comptableModifie}
         setCompatableModifie={setCompatableModifie}
       />

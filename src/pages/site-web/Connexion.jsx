@@ -158,14 +158,7 @@ export default function Connexion() {
                   {isSubmitting ? "Connexion en cours..." : "Se connecter"}
                 </Button>
 
-                <div className="flex justify-center gap-5 mt-4">
-                <div className="flex items-center  justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 cursor-pointer">
-                    <Facebook className="w-5 h-5 text-gray-200" />
-                  </div>
-                  <div className="flex items-center  justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 cursor-pointer">
-                    <Github className="w-5 h-5 text-gray-200" />
-                  </div>
-                </div>
+             
               </form>
             </CardContent>
           </Card>

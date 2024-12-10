@@ -14,7 +14,7 @@ import { useEffect } from "react";
 const ComptableFiltre = ({ comptables, setComptablesFiltres }) => {
   // États pour les filtres et la recherche
   const [filtreRecherche, setFiltreRecherche] = useState("");
-  const [filtreRole, setFiltreRole] = useState("Tous");
+  
   const [filtreStatut, setFiltreStatut] = useState("Tous");
 
   const comptablesFiltres = comptables.filter(
@@ -24,13 +24,13 @@ const ComptableFiltre = ({ comptables, setComptablesFiltres }) => {
         comptable.email
           .toLowerCase()
           .includes(filtreRecherche.toLowerCase())) &&
-      (filtreRole === "Tous" || comptable.role === filtreRole) &&
+     
       (filtreStatut === "Tous" || comptable.statut === filtreStatut)
   );
 
   useEffect(() => {
     setComptablesFiltres(comptablesFiltres);
-  }, [comptablesFiltres, filtreRecherche, filtreRole, filtreStatut, setComptablesFiltres]);
+  }, [comptablesFiltres, filtreRecherche,  filtreStatut, setComptablesFiltres]);
 
   return (
     <div className="flex space-x-4 mb-4">
@@ -43,16 +43,7 @@ const ComptableFiltre = ({ comptables, setComptablesFiltres }) => {
           onChange={(e) => setFiltreRecherche(e.target.value)}
         />
       </div>
-      <Select value={filtreRole} onValueChange={setFiltreRole}>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Rôle" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="Tous">Tous les rôles</SelectItem>
-          <SelectItem value="Comptable">Comptable</SelectItem>
-          <SelectItem value="Superviseur">Superviseur</SelectItem>
-        </SelectContent>
-      </Select>
+      
       <Select value={filtreStatut} onValueChange={setFiltreStatut}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Statut" />

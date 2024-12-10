@@ -6,18 +6,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import img1 from '@/assets/img1.webp';
 import { Link } from 'react-router-dom';
-import { Facebook, Github } from 'lucide-react';
+
 export default function Inscription() {
   const [formData, setFormData] = useState({
-    username: '',
+    name: '',
+    prenom: '',
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   });
 
   const [errors, setErrors] = useState({
-    username: '',
+    name: '',
+    prenom: '',
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,14 +41,20 @@ export default function Inscription() {
 
   const validateForm = () => {
     let formErrors = {
-      username: '',
+      name: '',
+      prenom: '',
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     };
     let isValid = true;
 
-    if (formData.username.trim().length < 2) {
-      formErrors.username = "Le nom d'utilisateur doit contenir au moins 2 caractères.";
+    if (formData.name.trim().length < 2) {
+      formErrors.name = "Le nom doit contenir au moins 2 caractères.";
+      isValid = false;
+    } 
+     if (formData.prenom.trim().length < 2) {
+      formErrors.prenom = "Le prenom doit contenir au moins 2 caractères.";
       isValid = false;
     }
 
@@ -56,6 +66,11 @@ export default function Inscription() {
 
     if (formData.password.length < 8) {
       formErrors.password = "Le mot de passe doit contenir au moins 8 caractères.";
+      isValid = false;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      formErrors.confirmPassword = "Les mots de passe ne correspondent pas.";
       isValid = false;
     }
 
@@ -84,7 +99,7 @@ export default function Inscription() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="flex w-full max-w-6xl  shadow-lg rounded-xl overflow-hidden">
+      <div className="flex w-full max-w-7xl  shadow-lg rounded-xl overflow-hidden">
         {/* Image de présentation */}
         <div className="hidden md:block md:w-1/2 bg-cover bg-center" 
           style={{
@@ -104,20 +119,38 @@ export default function Inscription() {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Label htmlFor="username">Nom d&apos;utilisateur</Label>
+              <div className='flex gap-4'>
+              <div>
+                  <Label htmlFor="name">Nom</Label>
                   <Input
-                    id="username"
-                    name="username"
-                    placeholder="Votre nom d'utilisateur"
-                    value={formData.username}
+                    id="name"
+                    name="name"
+                    placeholder="Votre nom"
+                    value={formData.name}
                     onChange={handleChange}
-                    className={errors.username ? "border-red-500" : ""}
+                    className={errors.name ? "border-red-500" : ""}
                   />
-                  {errors.username && (
-                    <p className="text-red-500 text-sm mt-1">{errors.username}</p>
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
                   )}
                 </div>
+                <div>
+                  <Label htmlFor="prenom">Prénom</Label>
+                  <Input
+                    id="prenom"
+                    name="prenom"
+                    placeholder="Votre prénom"
+                    value={formData.prenom}
+                    onChange={handleChange}
+                    className={errors.prenom ? "border-red-500" : ""}
+                  />
+                  {errors.prenom && (
+                    <p className="text-red-500 text-sm mt-1">{errors.prenom}</p>
+                  )}
+                </div>
+                
+              </div>
+              
 
                 <div>
                   <Label htmlFor="email">Email</Label>
@@ -149,6 +182,21 @@ export default function Inscription() {
                     <p className="text-red-500 text-sm mt-1">{errors.password}</p>
                   )}
                 </div>
+                <div>
+                  <Label htmlFor="confirmPassword">Confirmer le mot de passe</Label>
+                  <Input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    placeholder="Confirmer le mot de passe"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    className={errors.confirmPassword ? "border-red-500" : ""}
+                  />
+                  {errors.confirmPassword && (
+                    <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
+                  )}
+                </div>
 
                 <Button 
                   type="submit" 
@@ -157,14 +205,7 @@ export default function Inscription() {
                 >
                   {isSubmitting ? "En cours..." : "S'inscrire"}
                 </Button>
-                <div className="flex justify-center gap-5 mt-4">
-                <div className="flex items-center  justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 cursor-pointer">
-                    <Facebook className="w-5 h-5 text-gray-200" />
-                  </div>
-                  <div className="flex items-center  justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 cursor-pointer">
-                    <Github className="w-5 h-5 text-gray-200" />
-                  </div>
-                </div>
+              
               </form>
             </CardContent>
           </Card>

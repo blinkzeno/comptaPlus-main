@@ -18,16 +18,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useEffect } from "react";
-const ComptableForm = ({ comptables, setComptables, isOpen, setIsOpen, comptableModifie}) => {
+
+
+const ComptableForm = ({ comptables, setComptables ,isModifier, isOpen, setIsOpen, comptableModifie}) => {
   //États pour la creation de nouveaux comptables
-  const [isModifier, setIsModifier] = useState(false);
+ 
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+ 
   const [statut, setStatut] = useState("");
-  const [systeme, setSysteme] = useState("");
-  const [dateAjout, setDateAjout] = useState("");
+  
+
 
     // fonction de creation de nouveaux comptables
     const ajouterComptable = () => {
@@ -36,13 +38,13 @@ const ComptableForm = ({ comptables, setComptables, isOpen, setIsOpen, comptable
         nom,
         prenom,
         email,
-        role,
+    
         statut,
-        systeme,
-        //convertir la date en objet Date
-        dateAjout: new Date(dateAjout),
+       
+     
+        
       };
-      console.log("voici la date a la creation du comptable",dateAjout)
+     
       setComptables([...comptables, nouveauComptable]);
     
   
@@ -51,45 +53,46 @@ const ComptableForm = ({ comptables, setComptables, isOpen, setIsOpen, comptable
     };
   
 
-    
   
     const enregistrerModifications = (id) => {
       setComptables(
         comptables.map((comptable) =>
           comptable.id === id
-            ? { ...comptable, nom, prenom, email, role, statut, systeme, dateAjout: new Date(dateAjout) }
+            ? { ...comptable, nom, prenom, email,  statut }
             : comptable
         )
       );
       setIsOpen(false);
-      setIsModifier(false);
+      
     };
   
+    useEffect(() => {
+      if (comptableModifie) {
+        setNom(comptableModifie.nom);
+        setPrenom(comptableModifie.prenom);
+        setEmail(comptableModifie.email);
+        setStatut(comptableModifie.statut);
+        
+      }
 
-useEffect(() => {
-  if (isOpen) {
-    setNom("");
-    setPrenom("");
-    setEmail("");
-    setRole("");
-    setStatut("");
-    setSysteme("");
-    setDateAjout("");
-  }
+      // clean le composant a chaque montage
+      if(!comptableModifie){
+        setNom("");
+        setPrenom("");
+        setEmail("");
+        setStatut("");
+        
+      }
 
-  if (comptableModifie) {
-    setNom(comptableModifie.nom);
-    setPrenom(comptableModifie.prenom);
-    setEmail(comptableModifie.email);
-    setRole(comptableModifie.role);
-    setStatut(comptableModifie.statut);
-    setSysteme(comptableModifie.systeme);
-    setDateAjout(comptableModifie.dateAjout.toISOString().slice(0, 10));
-    setIsModifier(true);
+      return () => {
+        setNom("");
+        setPrenom("");
+        setEmail("");
+        setStatut("");
+        
+      };
+    }, [comptableModifie]);
 
-  }
-
-}, [comptableModifie, isOpen]);
 
 
   return (
@@ -132,40 +135,8 @@ useEffect(() => {
               placeholder="Email"
             />
           </div>
-          <div>
-            <Label htmlFor="role">Rôle</Label>
-            <Select
-              id="role"
-              onValueChange={(value) =>
-                setRole(value)
-              }
-
-              defaultValue={role !== ""  ? role : "" }
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Rôle" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="Comptable">Comptable</SelectItem>
-                <SelectItem value="Superviseur">Superviseur</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div>
-            <Label htmlFor="systeme">systeme</Label>
-            <Select id="systeme"  onValueChange={(value) =>
-                setSysteme(value)
-              }
-              defaultValue={systeme !== ""  ? systeme : "" } >
-              <SelectTrigger>
-                <SelectValue placeholder="systemes" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="systeme 1">systeme 1</SelectItem>
-                <SelectItem value="systeme 2">systeme 2</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+         
+         
           <div>
             <Label htmlFor="statut">Statut</Label>
             <Select id="statut"  onValueChange={(value) =>
@@ -181,17 +152,7 @@ useEffect(() => {
               </SelectContent>
             </Select>
           </div>
-          <div>
-            <Label htmlFor="dateAjout">Date d&apos;ajout</Label>
-            <Input
-           
-              type="date"
-              value={ dateAjout!=="" ? dateAjout : ""}
-              format = "dd/mm/yyyy"
-              onChange={(e) => setDateAjout(e.target.value)}
-              id="dateAjout"
-            />
-          </div>
+          
         </div>
       </div>
       <div className="flex justify-end space-x-2 mt-4">
@@ -199,11 +160,11 @@ useEffect(() => {
           Annuler
         </Button>
         {isModifier ? (
-          <Button onClick={() => enregistrerModifications(comptableModifie.isModifier)}>
+          <Button onClick={() => enregistrerModifications(comptableModifie.id)}>
             Enregistrer les modifications
           </Button>
         ) : (
-          <Button onClick={() => ajouterComptable()}>
+          <Button onClick={() => ajouterComptable}>
             Enregistrer
           </Button>
         )}

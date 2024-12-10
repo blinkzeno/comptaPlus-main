@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Edit, Trash2 } from "lucide-react";
 
 
-const ComptableTable = ({ comptables, setIsOpen, setComptables,  setCompatableModifie }) => {
+const ComptableTable = ({ comptables, setIsOpen, setIsModifier, setComptables,  setCompatableModifie }) => {
    
 const supprimerComptable = (id) => {
   // Logique pour supprimer le comptable avec l'ID spécifique
@@ -18,6 +18,7 @@ const HandleModification = (id) => {
   const comptable = comptables.find((c) => c.id === id);
   setCompatableModifie(comptable);
   setIsOpen(true);
+  setIsModifier(true);
   console.log(`Modifier le comptable avec ID : ${id}`);
 };
 
@@ -28,9 +29,9 @@ return (
       <TableRow>
         <TableHead>Nom et Prénom</TableHead>
         <TableHead>Email</TableHead>
-        <TableHead>Rôle</TableHead>
+      
         <TableHead>Statut</TableHead>
-        <TableHead>Système</TableHead>
+        
         <TableHead>Actions</TableHead>
       </TableRow>
     </TableHeader>
@@ -39,9 +40,9 @@ return (
         <TableRow key={c.id}>
           <TableCell>{c.nom} {c.prenom}</TableCell>
           <TableCell>{c.email}</TableCell>
-          <TableCell>{c.role}</TableCell>
+        
           <TableCell>{c.statut}</TableCell>
-          <TableCell>{c.systeme}</TableCell>
+         
           <TableCell>
                     <div className="flex space-x-2">
                       <Button onClick={() => HandleModification(c.id)} variant="ghost" size="icon">

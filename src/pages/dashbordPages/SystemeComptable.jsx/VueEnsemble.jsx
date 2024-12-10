@@ -21,15 +21,7 @@ const VueEnsemble = () => {
             <p className="text-gray-600">Date de création : 15/11/2024</p>
           </div>
           
-          {/* Global Actions */}
-          <div className="flex justify-center mt-4">
-            <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded">
-              Modifier le système
-            </button>
-            <button className="bg-red-500 text-white px-4 py-2 rounded">
-              Supprimer le système
-            </button>
-          </div>
+      
         </div>
 
         {/* Dashboard Overview */}
@@ -47,17 +39,17 @@ const VueEnsemble = () => {
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle>Dépenses et Recettes</CardTitle>
+              <CardTitle>Charge et Produits</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="flex justify-between">
                 <div>
-                  <div className="text-sm text-muted-foreground">Dépenses</div>
+                  <div className="text-sm text-muted-foreground">Charge</div>
                   <div className="text-xl font-bold text-red-500">45 000 USD</div>
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">Recettes</div>
+                  <div className="text-sm text-muted-foreground">Produits</div>
                   <div className="text-xl font-bold text-green-500">67 000 USD</div>
                 </div>
               </div>
@@ -66,7 +58,7 @@ const VueEnsemble = () => {
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle>Balance de Trésorerie</CardTitle>
+              <CardTitle>Resultat</CardTitle>
               <BarChart className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>

@@ -1,5 +1,5 @@
 import { HelpCircle } from "lucide-react";
-import { Users } from "lucide-react";
+
 import { LayoutDashboard } from "lucide-react";
 import { Clock } from "lucide-react";
 import { Settings } from "lucide-react";
@@ -16,12 +16,6 @@ const sidebarItems = [
      icon: <LayoutDashboard />, 
      label: 'Systèmes Comptables', 
      section: 'systems' 
-   },
-   { 
-    link : '/dashboard/gestion-comptables',
-     icon: <Users />, 
-     label: 'Gestion de Comptables', 
-     section: 'users' 
    },
    { 
     link : '/dashboard/historique',

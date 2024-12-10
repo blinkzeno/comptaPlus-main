@@ -161,7 +161,7 @@ const Journaux = () => {
           ))}
         </TableBody>
       </Table>
-
+    
       {/* Dialogue de détails du journal */}
       <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
         <DialogContent className="max-w-4xl">
@@ -182,23 +182,29 @@ const Journaux = () => {
           </div>
 
           {/* Liste des écritures */}
-          <Table>
+         <div className='space-x-4 flex  w-full'>
+          {/* tableau des credits */}
+        <div className='w-1/2 bg-slate-200'>
+          <div>
+            <h3 className=" text-center text-lg font-semibold mb-2">Ecritures de Crédit</h3>
+          </div>
+        <Table className="w-full bg-blue-200">
             <TableHeader>
-              <TableRow>
-                <TableHead>Date</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Compte Débité</TableHead>
-                <TableHead>Compte Crédité</TableHead>
-                <TableHead>Montant</TableHead>
-                <TableHead>Actions</TableHead>
+              <TableRow >
+               
+               
+                <TableHead className="border">Compte credité</TableHead>
+               
+                <TableHead className="border">Montant</TableHead>
+                <TableHead className="border">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {ecrituresJournal.map((ecriture) => (
                 <TableRow key={ecriture.id}>
-                  <TableCell>{ecriture.date}</TableCell>
-                  <TableCell>{ecriture.description}</TableCell>
-                  <TableCell>{ecriture.compteDebite}</TableCell>
+                 
+                
+              
                   <TableCell>{ecriture.compteCredite}</TableCell>
                   <TableCell>{ecriture.montant.toLocaleString()} €</TableCell>
                   <TableCell>
@@ -212,6 +218,44 @@ const Journaux = () => {
               ))}
             </TableBody>
           </Table>
+        </div>
+          {/* tableau des debits */}
+          <div className='w-1/2 bg-slate-200'>
+          <div>
+            <h3 className=" text-center text-lg font-semibold mb-2">Ecritures de Debit</h3>
+          </div>
+        <Table className="w-full bg-green-200">
+            <TableHeader>
+              <TableRow>
+        
+                
+                <TableHead>Compte Débité</TableHead>
+               
+                <TableHead>Montant</TableHead>
+                <TableHead>Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {ecrituresJournal.map((ecriture) => (
+                <TableRow key={ecriture.id}>
+                 
+              
+                  <TableCell>{ecriture.compteDebite}</TableCell>
+                 
+                  <TableCell>{ecriture.montant.toLocaleString()} €</TableCell>
+                  <TableCell>
+                    <div className="flex space-x-2">
+                      <Button variant="outline" size="sm">
+                        Modifier
+                      </Button>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+         </div>
 
           {/* Actions globales */}
           <div className="flex justify-end space-x-2 mt-4">
