@@ -9,16 +9,16 @@ import { Link } from 'react-router-dom';
 
 export default function Inscription() {
   const [formData, setFormData] = useState({
-    name: '',
-    prenom: '',
+    userName: '',
+   
     email: '',
     password: '',
     confirmPassword: ''
   });
 
   const [errors, setErrors] = useState({
-    name: '',
-    prenom: '',
+    userName: '',
+    
     email: '',
     password: '',
     confirmPassword: ''
@@ -41,23 +41,19 @@ export default function Inscription() {
 
   const validateForm = () => {
     let formErrors = {
-      name: '',
-      prenom: '',
+      userName: '',
+      
       email: '',
       password: '',
       confirmPassword: ''
     };
     let isValid = true;
 
-    if (formData.name.trim().length < 2) {
-      formErrors.name = "Le nom doit contenir au moins 2 caractères.";
+    if (formData.userName.trim().length < 2) {
+      formErrors.userName = "Le nom doit contenir au moins 2 caractères.";
       isValid = false;
     } 
-     if (formData.prenom.trim().length < 2) {
-      formErrors.prenom = "Le prenom doit contenir au moins 2 caractères.";
-      isValid = false;
-    }
-
+    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       formErrors.email = "Veuillez entrer une adresse email valide.";
@@ -119,37 +115,23 @@ export default function Inscription() {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
-              <div className='flex gap-4'>
+              
               <div>
-                  <Label htmlFor="name">Nom</Label>
+                  <Label htmlFor="name">nom d&apos;utilisateur</Label>
                   <Input
                     id="name"
                     name="name"
-                    placeholder="Votre nom"
-                    value={formData.name}
+                    placeholder="Votre nom d'utilisateur"
+                    value={formData.userName}
                     onChange={handleChange}
-                    className={errors.name ? "border-red-500" : ""}
+                    className={errors.userName ? "border-red-500" : ""}
                   />
                   {errors.name && (
                     <p className="text-red-500 text-sm mt-1">{errors.name}</p>
                   )}
                 </div>
-                <div>
-                  <Label htmlFor="prenom">Prénom</Label>
-                  <Input
-                    id="prenom"
-                    name="prenom"
-                    placeholder="Votre prénom"
-                    value={formData.prenom}
-                    onChange={handleChange}
-                    className={errors.prenom ? "border-red-500" : ""}
-                  />
-                  {errors.prenom && (
-                    <p className="text-red-500 text-sm mt-1">{errors.prenom}</p>
-                  )}
-                </div>
-                
-              </div>
+            
+            
               
 
                 <div>
