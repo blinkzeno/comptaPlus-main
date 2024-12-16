@@ -25,6 +25,7 @@ import Divers from "./pages/dashbordPages/SystemeComptable.jsx/sous-menu/Divers.
 import Tresorerie from "./pages/dashbordPages/SystemeComptable.jsx/sous-menu/Tresorerie.jsx";
 import Salaire from "./pages/dashbordPages/SystemeComptable.jsx/sous-menu/Salaire.jsx";
 import Inventaire from "./pages/dashbordPages/SystemeComptable.jsx/sous-menu/Inventaire.jsx";
+import UserProfile from "./pages/dashbordPages/UserProfile.jsx";
 
 const App = () => {
   return (
@@ -42,9 +43,11 @@ const App = () => {
         {/* Routes du tableau de bord (qui ont leur propre layout) */}
         <Route element={<LayoutDashboard/>}>
           <Route path="/dashboard" element={<DashboardHome />} />
+
           <Route path="/dashboard/historique" element={<Historiques />} />
           <Route path="/dashboard/aide" element={<Aide/>} />
           <Route path="/dashboard/parametres" element={<Parametre />} />
+          <Route path="/dashboard/profile" element={<UserProfile/>} />
         </Route>
 
         <Route element={<LayoutSystemeComptable/>}>
