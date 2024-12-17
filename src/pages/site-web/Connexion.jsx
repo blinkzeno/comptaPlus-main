@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
-import { Facebook, Github} from "lucide-react";
-import img1 from '@/assets/img1.webp';
+import { Facebook, Github } from "lucide-react";
+import img1 from "@/assets/img1.webp";
 
 export default function Connexion() {
   const [formData, setFormData] = useState({
@@ -157,8 +157,6 @@ export default function Connexion() {
                 >
                   {isSubmitting ? "Connexion en cours..." : "Se connecter"}
                 </Button>
-
-             
               </form>
             </CardContent>
           </Card>

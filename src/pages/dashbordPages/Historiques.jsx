@@ -119,7 +119,7 @@ const Historiques = () => {
                 </TableCell>
                 <TableCell className="flex">
                   <Button variant="outline">Voir</Button>
-                  <Button variant="destructive" className="ml-2">Supprimer</Button>
+                 
                 </TableCell>
               </TableRow>
             ))
